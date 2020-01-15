@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassUploader", "MassUploader\MassUploader.csproj", "{CF5C0A4C-1489-41C4-BE95-B1331E72524A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{79E32772-A50F-40FF-8CE1-FA26008D9DB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF5C0A4C-1489-41C4-BE95-B1331E72524A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5C0A4C-1489-41C4-BE95-B1331E72524A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5C0A4C-1489-41C4-BE95-B1331E72524A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5C0A4C-1489-41C4-BE95-B1331E72524A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79E32772-A50F-40FF-8CE1-FA26008D9DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79E32772-A50F-40FF-8CE1-FA26008D9DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79E32772-A50F-40FF-8CE1-FA26008D9DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79E32772-A50F-40FF-8CE1-FA26008D9DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25929808-BE61-4268-ADEF-8EA841A9E1E3}
+	EndGlobalSection
+EndGlobal
