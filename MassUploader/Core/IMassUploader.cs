@@ -12,5 +12,10 @@ namespace MassUploader.Core
         Task<Dictionary<Enums.NetworksAvailable, Classes.Result>> LoginNetwork();
 
         Task<Dictionary<Enums.NetworksAvailable, Classes.Result>> LogoutNetwork();
+
+        Classes.NetworkSession UptoboxSession { get; }
+        Classes.NetworkSession TurbotBitSession { get; }
+
+        Core.Logger Logger { get; }
     }
 }

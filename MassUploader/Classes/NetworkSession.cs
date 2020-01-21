@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 
 namespace MassUploader.Classes
 {
-    public class NetworkSession
+    public class NetworkSession : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private HttpClientHandler httpClientHandler = new HttpClientHandler();
 
-        public CookieContainer cookieContainer { get; } = new CookieContainer();
+        private Enums.NetworkStatus networkStatus = Enums.NetworkStatus.Disabled;
 
-        public HttpClient HttpClient { get; }
+        internal CookieContainer cookieContainer { get; } = new CookieContainer();
 
-        public bool Logged { get; set; }
+        internal HttpClient HttpClient { get; }
 
-        public NetworkAccount Account { get; }
+        internal bool Logged { get; set; }
 
-        public NetworkSession(NetworkAccount account)
+        internal NetworkAccount Account { get; }
+
+        internal NetworkSession(NetworkAccount account)
         {
             this.Account = account;
 
@@ -28,6 +33,22 @@ namespace MassUploader.Classes
                 HttpClient = new HttpClient(httpClientHandler);
             }
 
+        }
+
+        /// <summary>
+        /// Use for binding with WPF MVVM
+        /// </summary>
+        public Enums.NetworkStatus NetworkStatus
+        {
+            get => networkStatus;
+            set
+            {
+                if (value != networkStatus)
+                {
+                    networkStatus = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("NetworkStatus"));
+                }
+            }
         }
     }
 }

@@ -6,6 +6,8 @@ namespace MassUploader.Enums
 {
     public enum NetworksAvailable
     {
-        Uptobox
+        Uptobox,
+        TurbotBit,
+        UnFichier
     }
 }

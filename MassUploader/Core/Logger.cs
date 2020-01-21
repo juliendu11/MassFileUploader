@@ -9,15 +9,23 @@ namespace MassUploader.Core
     {
         public ObservableCollection<string> Logs { get; }
 
-        public Logger()
+        private Enums.LogLevel logLevel;
+
+        internal Logger(Enums.LogLevel logLever)
         {
             Logs = new ObservableCollection<string>();
+            this.logLevel = logLever;
         }
 
-        public void WriteLog(string process, string text)
+        internal void WriteLog(string process, string text, bool isResponseBody=false)
         {
             if (Logs != null)
-            Logs.Add("[" + DateTime.Now.ToString() + "][" + process + "]" + text);
+            {
+                if (logLevel == Enums.LogLevel.NoResponseBody && isResponseBody)
+                    return;
+
+                Logs.Add("[" + DateTime.Now.ToString() + "][" + process + "]" + text);
+            }
         }
     }
 }

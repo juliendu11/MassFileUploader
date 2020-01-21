@@ -10,17 +10,19 @@ namespace MassUploader.Core.Builder
         private Classes.NetworkAccount megaAccount;
         private Classes.NetworkAccount dropboxAccount;
         private Classes.NetworkAccount unFichierAccount;
+        private Classes.NetworkAccount turbotBitAccount;
 
         private bool enableLogs = false;
+        private Enums.LogLevel logLevel;
 
         private MassUploaderBuilder() { }
 
         public IMassUploader Build()
         {
-            return new MassUploader(uptoboxAccount, megaAccount, dropboxAccount, unFichierAccount, enableLogs);
+            return new MassUploader(uptoboxAccount, megaAccount, dropboxAccount, unFichierAccount, turbotBitAccount, enableLogs, logLevel);
         }
 
-        public IMassUploaderBuilder EnableLogs()
+        public IMassUploaderBuilder EnableLogs(Enums.LogLevel logLevel)
         {
             enableLogs = true;
 
@@ -64,9 +66,35 @@ namespace MassUploader.Core.Builder
             return this;
         }
 
+        public IMassUploaderBuilder Uploaded(string id, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMassUploaderBuilder Turbobit(string id, string password)
+        {
+            if (!string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(password))
+            {
+                turbotBitAccount = new Classes.NetworkAccount { Id = id, Password = password };
+            }
+            return this;
+        }
+
+        public IMassUploaderBuilder Rapidgator(string id, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IMassUploaderBuilder Nitroflare(string id, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public static IMassUploaderBuilder CreateBuilder()
         {
             return new MassUploaderBuilder();
         }
+
+        
     }
 }
